@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/mainbackground" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="50.0dip" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:id="@+id/MeetingTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip">
+                <ImageButton android:layout_gravity="center_vertical" android:id="@+id/btn_sign" android:background="@drawable/signxml" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <ImageButton android:id="@+id/btn_meetinginfo" android:background="@drawable/meetinginfoxml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" />
+                <ImageButton android:id="@+id/btn_servicecall" android:background="@drawable/servicexml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" />
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="5.0dip">
+                <ImageButton android:id="@+id/btn_sms" android:background="@drawable/smsxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <ImageButton android:id="@+id/btn_autoimport" android:background="@drawable/btn_autoimport" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" />
+                <ImageButton android:id="@+id/btn_setting" android:background="@drawable/settingxml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/regulation_modi" />
+    </RelativeLayout>
+</LinearLayout>

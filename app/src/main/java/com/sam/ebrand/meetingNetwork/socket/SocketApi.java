@@ -112,7 +112,7 @@ public class SocketApi {
             do {
                 final int read = this.mIn.read(array, n2, n - i);
                 if (read < 0) {
-                    Log.e("SocketAPI", "\u8bfb\u53d6\u6570\u636e\u5931\u8d25\uff0c\u4e0e\u670d\u52a1\u5668\u8fde\u63a5\u65ad\u5f00\uff01");
+                    Log.e("SocketAPI", "读取数据失败，与服务器连接断开！");
                     i = read;
                     return i;
                 }
@@ -123,7 +123,7 @@ public class SocketApi {
         }
         catch (IOException ex) {
             ex.printStackTrace();
-            Log.e("SocketAPI", "\u63a5\u6536\u6570\u636e\u5f02\u5e38\uff01" + ex.getMessage());
+            Log.e("SocketAPI", "接收数据异常！" + ex.getMessage());
             return i;
         }
     }
@@ -198,13 +198,13 @@ public class SocketApi {
             this.mIn = null;
             this.mOut = null;
             this.mSocket.close();
-            Log.e("SocketApi", "\u5173\u95edTCP: " + this.mIPAddr);
+            Log.e("SocketApi", "关闭TCP: " + this.mIPAddr);
         }
         catch (IllegalArgumentException ex2) {
-            Log.e("SocketApi", "\u5173\u95edTCP: WineStock SocketClient IllegalArgumentException ");
+            Log.e("SocketApi", "关闭TCP: WineStock SocketClient IllegalArgumentException ");
         }
         catch (IOException ex) {
-            Log.e("SocketApi", "\u5173\u95edTCP: WineStock SocketClient IOException ");
+            Log.e("SocketApi", "关闭TCP: WineStock SocketClient IOException ");
             ex.printStackTrace();
         }
     }
@@ -254,5 +254,4 @@ public class SocketApi {
             Log.e("SocketApi", "WineStock SocketClient IllegalArgumentException ");
         }
     }
-}
 }

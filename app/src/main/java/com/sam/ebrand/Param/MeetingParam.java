@@ -7,6 +7,9 @@ package com.sam.ebrand.param;
 import android.os.Environment;
 
 import com.sam.ebrand.manage.SettingManager;
+import com.sam.ebrand.meetingNetwork.beans.PeopleBean;
+
+import java.util.List;
 
 
 public class MeetingParam {
@@ -81,7 +84,7 @@ public class MeetingParam {
     public static final int SYNC_SOCKET_PORT = 4003;
     public static final int TIMEOUT_TIMER_DELAY = 5;
     public static final String UDiskPath = "/mnt/usb_storage";
-    public static final String USERXLSPATH = "/mnt/usb_storage/\u5bfc\u5165\u8d44\u6599/\u4eba\u5458\u8d44\u6599.xls";
+    public static final String USERXLSPATH = "/mnt/usb_storage/导入资料/人员资料.xls";
     public static boolean bCameraExists = false;
     public static boolean bScaleSublcd = false;
     public static final int defaultPostTime = 5;

@@ -113,17 +113,17 @@ public class SettingManager {
 
     public Object readSetting(final String s, Object value, final Object o) {
         if (value instanceof Boolean) {
-            value = this.settings.getBoolean(s, (boolean)o);
+            value = this.settings.getBoolean(s, (boolean)(Boolean)o);
         }
         else {
             if (value instanceof Integer) {
-                return this.settings.getInt(s, (int)o);
+                return this.settings.getInt(s, (int)(Integer)o);
             }
             if (value instanceof Float) {
-                return this.settings.getFloat(s, (float)o);
+                return this.settings.getFloat(s, (float)(Float)o);
             }
             if (value instanceof Long) {
-                return this.settings.getLong(s, (long)o);
+                return this.settings.getLong(s, (long)(Long)o);
             }
             if (value instanceof String) {
                 return this.settings.getString(s, (String)o);
@@ -141,16 +141,16 @@ public class SettingManager {
             this.beginWrite();
         }
         if (o instanceof Boolean) {
-            this.mEditor.putBoolean(s, (boolean)o);
+            this.mEditor.putBoolean(s, (Boolean)o);
         }
         else if (o instanceof Integer) {
-            this.mEditor.putInt(s, (int)o);
+            this.mEditor.putInt(s, (Integer) o);
         }
         else if (o instanceof Float) {
-            this.mEditor.putFloat(s, (float)o);
+            this.mEditor.putFloat(s, (Float) o);
         }
         else if (o instanceof Long) {
-            this.mEditor.putLong(s, (long)o);
+            this.mEditor.putLong(s, (Long)o);
         }
         else if (o instanceof String) {
             this.mEditor.putString(s, (String)o);
@@ -166,16 +166,16 @@ public class SettingManager {
     public void writeSetting(final String s, final Object o) {
         final SharedPreferences.Editor edit = this.settings.edit();
         if (o instanceof Boolean) {
-            edit.putBoolean(s, (boolean)o);
+            edit.putBoolean(s, (Boolean)o);
         }
         else if (o instanceof Integer) {
-            edit.putInt(s, (int)o);
+            edit.putInt(s, (Integer) o);
         }
         else if (o instanceof Float) {
-            edit.putFloat(s, (float)o);
+            edit.putFloat(s, (Float)o);
         }
         else if (o instanceof Long) {
-            edit.putLong(s, (long)o);
+            edit.putLong(s, (Long)o);
         }
         else if (o instanceof String) {
             edit.putString(s, (String)o);

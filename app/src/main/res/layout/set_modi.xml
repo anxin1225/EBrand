@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/mainbackground" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@+id/view_usernamebmp_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <com.meeting.application.set.UsernameLayout android:id="@+id/username_layout" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="800.0dip" android:layout_height="480.0dip" />
+            <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                <Button android:textSize="25.0dip" android:id="@+id/btn_initPos" android:layout_width="200.0dip" android:layout_height="wrap_content" android:text="初始位置" />
+                <Button android:textSize="25.0dip" android:id="@+id/btn_purecolor" android:layout_width="200.0dip" android:layout_height="wrap_content" android:text="纯色背景" />
+                <Button android:textSize="25.0dip" android:id="@+id/btn_bitmapbackground" android:layout_width="200.0dip" android:layout_height="wrap_content" android:text="其他背景" />
+                <Button android:textSize="25.0dip" android:id="@+id/btn_modify_confirm" android:layout_width="200.0dip" android:layout_height="wrap_content" android:text="确认修改" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:id="@+id/backgroundgallary_layout" android:background="#aa000000" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+            <Gallery android:layout_gravity="center_vertical" android:id="@+id/gallery_bitmapbackground" android:background="#00000000" android:fadingEdgeLength="-5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:spacing="16.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/layout_username_bmp" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/view_usernamebmp" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/settingbg" android:layout_width="wrap_content" android:layout_height="500.0dip">
+        <ImageView android:id="@id/imageView1" android:background="@drawable/settingtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_centerHorizontal="true" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@+id/SettingLayout" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="165.0dip" android:layout_centerHorizontal="true">
+            <HorizontalScrollView android:id="@+id/horizontalScrollView1" android:layout_width="700.0dip" android:layout_height="100.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageButton android:id="@+id/btn_aboutinfree" android:background="@drawable/btn_aboutxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_networksetting" android:background="@drawable/btn_ipsettingxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_changewallpaper" android:background="@drawable/btn_changewallpaperxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_nameshow" android:background="@drawable/btn_nameshowxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_sublcdsetting" android:background="@drawable/btn_backscreensettingxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_cleardata" android:background="@drawable/btn_cleardataxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_softwareversion" android:background="@drawable/btn_softwareversionxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_hardwareinfo" android:background="@drawable/btn_hardwareinfoxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <ImageButton android:id="@+id/btn_serveraddr" android:background="@drawable/btn_serveraddrxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="700.0dip" android:layout_height="150.0dip" android:layout_marginTop="30.0dip" android:layout_below="@id/SettingLayout" android:layout_centerInParent="true">
+            <RelativeLayout android:id="@+id/view_aboutme" android:focusable="true" android:focusableInTouchMode="true" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="30.0dip" android:textColor="#ffffffff" android:id="@+id/txt_mgid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ID:" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/view_wallpaper" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <Gallery android:id="@+id/gallery_wallpaper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:spacing="10.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/view_backscreensetting" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+                    <ToggleButton android:id="@+id/btn_toggleBackscreen" android:layout_width="150.0dip" android:layout_height="50.0dip" android:checked="true" android:textOn="关闭副屏背光" android:textOff="打开副屏背光" android:text="ToggleButton" />
+                    <Button android:id="@+id/btn_drawdefault" android:visibility="gone" android:layout_width="150.0dip" android:layout_height="50.0dip" android:text="显示默认图片" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/view_softwareversion" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="35.0dip" android:textColor="#ffffffff" android:id="@+id/txt_softwareversion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/softwareversionnumber" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/view_hardwareversion" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+                    <TextView android:textSize="25.0dip" android:textColor="#ffffffff" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="版本号：HW_V1.0.0" />
+                    <TextView android:textSize="25.0dip" android:textColor="#ffffffff" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="处理器：ARM Cortex A10" />
+                    <TextView android:textSize="25.0dip" android:textColor="#ffffffff" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Flash:     4GB" />
+                    <TextView android:textSize="25.0dip" android:textColor="#ffffffff" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="外部存储卡：支持" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/view_serveraddrsetting" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:focusable="false" android:focusableInTouchMode="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dip" android:layout_height="0.0dip" />
+                    <EditText android:id="@+id/txt_ipAddrEditText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="服务器的ip地址" android:maxEms="16" android:digits="1234567890." android:layout_weight="1.0" />
+                    <Button android:id="@+id/btn_saveIpAddr" android:layout_width="100.0dip" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="设置" android:layout_weight="1.0" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/view_namesetting" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+                    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                        <Button android:layout_gravity="center_vertical" android:id="@+id/btn_backgoundsetting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="背景设置" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <EditText android:id="@+id/edtext_username" android:layout_width="200.0dip" android:layout_height="wrap_content" android:hint="@string/input_name_hint" android:maxLines="1" android:lines="1" android:singleLine="true" />
+                        <EditText android:id="@+id/edtext_company" android:layout_width="200.0dip" android:layout_height="wrap_content" android:hint="@string/input_company_hint" android:maxLines="1" android:lines="1" android:singleLine="true" />
+                        <EditText android:id="@+id/edtext_job" android:layout_width="200.0dip" android:layout_height="wrap_content" android:hint="@string/input_job_hit" android:maxLines="1" android:lines="1" android:singleLine="true" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="130.0dip" android:layout_height="fill_parent">
+                        <Spinner android:id="@+id/name_font_select" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        <Spinner android:id="@+id/company_font_select" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        <Spinner android:id="@+id/job_font_select" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="90.0dip" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip">
+                        <ImageView android:id="@+id/name_color" android:background="@color/yellow" android:layout_width="100.0dip" android:layout_height="40.0dip" />
+                        <ImageView android:id="@+id/company_color" android:background="@color/yellow" android:layout_width="100.0dip" android:layout_height="40.0dip" android:layout_marginTop="10.0dip" />
+                        <ImageView android:id="@+id/job_color" android:background="@color/yellow" android:layout_width="100.0dip" android:layout_height="40.0dip" android:layout_marginTop="10.0dip" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip">
+                        <EditText android:id="@+id/edtext_namesize" android:layout_width="70.0dip" android:layout_height="wrap_content" android:hint="20" android:singleLine="true" android:inputType="number" />
+                        <EditText android:id="@+id/edtext_companysize" android:layout_width="70.0dip" android:layout_height="wrap_content" android:hint="6" android:singleLine="true" android:inputType="number" />
+                        <EditText android:id="@+id/edtext_jobsize" android:layout_width="70.0dip" android:layout_height="wrap_content" android:hint="6" android:singleLine="true" android:inputType="number" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip">
+                        <CheckBox android:id="@+id/btn_namebold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="粗体" />
+                        <CheckBox android:id="@+id/btn_companybold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="粗体" />
+                        <CheckBox android:id="@+id/btn_jobbold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="粗体" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip">
+                        <Button android:textSize="20.0dip" android:layout_gravity="center_vertical" android:id="@+id/btn_pagesetting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="预览" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <ImageView android:id="@id/imageView2" android:background="@drawable/leftarrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="140.0dip" android:layout_marginTop="180.0dip" />
+        <ImageView android:id="@+id/imageView3" android:background="@drawable/rightarrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="862.0dip" android:layout_marginTop="180.0dip" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/regulation_modi" />
+    </RelativeLayout>
+</LinearLayout>

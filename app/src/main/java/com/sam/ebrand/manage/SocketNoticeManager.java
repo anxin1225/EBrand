@@ -1,14 +1,40 @@
 package com.sam.ebrand.manage;
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Environment;
+import android.os.Message;
 import android.util.Log;
+import android.widget.ImageButton;
 
+import com.sam.ebrand.application.ThreadPool;
+import com.sam.ebrand.application.UserBitmapGenerate;
+import com.sam.ebrand.application.WelcomeActivity;
+import com.sam.ebrand.application.mainActivity;
+import com.sam.ebrand.application.meeting.MeetinginfoActivity;
+import com.sam.ebrand.application.notice.NoticeActivity;
 import com.sam.ebrand.application.shortcutService;
+import com.sam.ebrand.application.sign.SignActivity;
+import com.sam.ebrand.application.sms.ReceiveMessageDlg;
+import com.sam.ebrand.application.sms.UnReadMessageQueue;
+import com.sam.ebrand.application.vote.VoteActivity;
+import com.sam.ebrand.engine.BackLight;
+import com.sam.ebrand.engine.LCDEngine;
+import com.sam.ebrand.meetingNetwork.beans.MingpaiBackgroundBean;
+import com.sam.ebrand.meetingNetwork.http.app.GetMingpaiBackgroundTask;
+import com.sam.ebrand.meetingNetwork.http.app.GetMingpaiInfoTask;
+import com.sam.ebrand.meetingNetwork.http.app.SetIP;
+import com.sam.ebrand.meetingNetwork.manage.DownloaderManager;
 import com.sam.ebrand.param.MeetingParam;
+import com.sam.ebrand.param.SampleParam;
 import com.sam.ebrand.util.FileUtils;
+import com.sam.ebrand.widget.ProgressDialogHint;
+import com.sam.ebrand.widget.ToastHint;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +42,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 /**
  * Created by sam on 2016/11/15.
@@ -76,7 +103,6 @@ public class SocketNoticeManager {
             }
             catch (IOException ex2) {}
         }
-        catch (IOException ex3) {}
         catch (MalformedURLException ex4) {
             return null;
         }
@@ -84,124 +110,6 @@ public class SocketNoticeManager {
     }
 
     public static void getBackgroundpicture() {
-        HttpProtocalManager.getInstance().getMingpaiBackground(new GetMingpaiBackgroundTask.OnResultListener() {
-            @Override
-            public void CancelListener() {
-            }
-
-            @Override
-            public void ResultListener(final int n, final String s, final String s2, final String s3) {
-                final String string = SettingManager.getInstance().readSetting("mingpai_newversion", "", "").toString();
-                while (true) {
-                    Label_0138: {
-                        if (s2.equals("")) {
-                            break Label_0138;
-                        }
-                        Block_5: {
-                            Block_3: {
-                                String s4;
-                                while (true) {
-                                    Label_0163: {
-                                        while (true) {
-                                            try {
-                                                final String substring = s2.substring(1 + s2.lastIndexOf("/"), s2.lastIndexOf("."));
-                                                s4 = substring;
-                                                if (s2.equals("") || string.equals(s4)) {
-                                                    break Label_0163;
-                                                }
-                                                Log.e("MP", "\u53d1\u73b0\u65b0\u56fe\u7247\uff1a" + s4 + "," + string + ",url:" + s2);
-                                                if (s4.equals("")) {
-                                                    SocketNoticeManager.getMingpaiMassage();
-                                                    return;
-                                                }
-                                                break;
-                                            }
-                                            catch (Exception ex) {
-                                                final String substring = "";
-                                                continue;
-                                            }
-                                            break;
-                                        }
-                                        break Label_0138;
-                                    }
-                                    final File file = new File(MeetingParam.SDCARD_WELCOME_PICTURE);
-                                    Log.e("MP", "same version");
-                                    if (file.exists() && file.length() > 0L) {
-                                        break Block_3;
-                                    }
-                                    while (true) {
-                                        try {
-                                            final String substring2 = s2.substring(1 + s2.lastIndexOf("/"), s2.lastIndexOf("."));
-                                            if (substring2.equals("")) {
-                                                SocketNoticeManager.getMingpaiMassage();
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception ex2) {
-                                            final String substring2 = "";
-                                            continue;
-                                        }
-                                        break;
-                                    }
-                                    if (!s2.equals("")) {
-                                        break Block_5;
-                                    }
-                                    return;
-                                }
-                                ThreadPool.getInstance().Execute(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        while (!Environment.getExternalStorageState().equals("mounted")) {
-                                            try {
-                                                Thread.sleep(1000L);
-                                            }
-                                            catch (InterruptedException ex) {
-                                                ex.printStackTrace();
-                                            }
-                                        }
-                                        if (ThreadPool.getInstance().isDownloading(s2)) {
-                                            return;
-                                        }
-                                        ThreadPool.getInstance().insert(s2, s2);
-                                        if (downloadWelcomePictureFromUrl(s2) != null) {
-                                            SettingManager.getInstance().writeSetting("mingpai_newversion", s4);
-                                        }
-                                        SocketManager.mStaticHandler.obtainMessage(4).sendToTarget();
-                                        ThreadPool.getInstance().remove(s2);
-                                    }
-                                });
-                                return;
-                            }
-                            SocketNoticeManager.getMingpaiMassage();
-                            return;
-                        }
-                        ThreadPool.getInstance().Execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                while (!Environment.getExternalStorageState().equals("mounted")) {
-                                    try {
-                                        Thread.sleep(1000L);
-                                    }
-                                    catch (InterruptedException ex) {
-                                        ex.printStackTrace();
-                                    }
-                                }
-                                if (ThreadPool.getInstance().isDownloading(s2)) {
-                                    return;
-                                }
-                                ThreadPool.getInstance().insert(s2, s2);
-                                downloadWelcomePictureFromUrl(s2);
-                                SocketManager.mStaticHandler.obtainMessage(4).sendToTarget();
-                                ThreadPool.getInstance().remove(s2);
-                            }
-                        });
-                        return;
-                    }
-                    String s4 = "";
-                    continue;
-                }
-            }
-        });
     }
 
     public static void getMingpaiMassage() {
@@ -269,7 +177,7 @@ public class SocketNoticeManager {
                     break;
                 }
                 if (int1 == 1) {
-                    Backlight.PowerOff();
+                    BackLight.PowerOff();
                     return;
                 }
                 if (int1 == 2) {
@@ -356,11 +264,11 @@ public class SocketNoticeManager {
                 ProgressDialogHint.Dismiss();
                 if (string.equals("")) {
                     if (SocketNoticeManager.mContext != null) {
-                        ToastHint.show(SocketNoticeManager.mContext, "\u94ed\u724cID\u6ce8\u518c\u6210\u529f!");
+                        ToastHint.show(SocketNoticeManager.mContext, "铭牌ID注册成功!");
                     }
                 }
                 else if (SocketNoticeManager.mContext != null) {
-                    ToastHint.show(SocketNoticeManager.mContext, "\u94ed\u724cID\u4e0a\u4f20\u6210\u529f!");
+                    ToastHint.show(SocketNoticeManager.mContext, "铭牌ID上传成功!");
                 }
                 HttpProtocalManager.getInstance().GetMeetingTitle(null);
                 HttpProtocalManager.getInstance().GetUserInfo();
@@ -381,7 +289,7 @@ public class SocketNoticeManager {
                     new SetIP().Request(string2);
                 }
                 else if (SocketNoticeManager.mContext != null) {
-                    ToastHint.show(SocketNoticeManager.mContext, "\u6ce8\u518c\u5931\u8d25\uff01");
+                    ToastHint.show(SocketNoticeManager.mContext, "注册失败！");
                 }
                 WelcomeActivity.MGID = "";
                 MeetingParam.MGID = "";
@@ -415,7 +323,7 @@ public class SocketNoticeManager {
                 break;
             }
             case 12: {
-                Log.e("SocketNoticeManager", "\u57fa\u672c\u8d44\u6599\u4fee\u6539");
+                Log.e("SocketNoticeManager", "基本资料修改");
                 HttpProtocalManager.getInstance().GetMeetingTitle(null);
                 getBackgroundpicture();
                 HttpProtocalManager.getInstance().GetUserInfo();
@@ -431,12 +339,12 @@ public class SocketNoticeManager {
             }
             case 15: {
                 final String mgid = new String(array);
-                Log.e("SocketNoticeManager", "----------\u540e\u53f0\u4fee\u6539\u4e86\u94ed\u724cID\uff0c\u65b0ID\u4e3a\u3010 " + mgid + "\u3011----------");
+                Log.e("SocketNoticeManager", "----------后台修改了铭牌ID，新ID为【 " + mgid + "】----------");
                 SettingManager.getInstance().writeSetting("mgID", mgid);
                 MeetingParam.MGID = mgid;
             }
             case 32: {
-                Log.e("SocketNoticeManager", "\u5e03\u5c40\u6539\u53d8");
+                Log.e("SocketNoticeManager", "布局改变");
                 if (new String(array).startsWith("#")) {
                     getMingpaiMassage();
                     return;
@@ -447,7 +355,7 @@ public class SocketNoticeManager {
                 HttpProtocalManager.getInstance().GetMeetingTitle(null);
                 getBackgroundpicture();
                 final String s5 = new String(array);
-                Log.e("SocketNoticeManager", "\u8d44\u6599\u66f4\u65b0:" + s5);
+                Log.e("SocketNoticeManager", "资料更新:" + s5);
                 SettingManager.getInstance().writeSetting("bCustomSetName", false);
                 if (!isNum(s5)) {
                     HttpProtocalManager.getInstance().GetUserInfo();
@@ -458,7 +366,7 @@ public class SocketNoticeManager {
                 SocketManager.mStaticHandler.sendMessageDelayed(obtain, 2000L);
             }
             case 34: {
-                Log.e("SocketNoticeManager", "\u4f1a\u8bae\u5207\u6362");
+                Log.e("SocketNoticeManager", "会议切换");
                 SettingManager.getInstance().writeSetting("meetingTitle", "");
                 LCDEngine.customBacklightStatus();
                 final boolean b = mContext instanceof mainActivity;
@@ -521,7 +429,6 @@ public class SocketNoticeManager {
                     SocketNoticeManager.mContext.startActivity(intent7);
                     return;
                 }
-                break;
             }
             case 42: {
                 if (SocketNoticeManager.mContext instanceof VoteActivity) {
@@ -532,7 +439,7 @@ public class SocketNoticeManager {
             }
             case 3: {
                 final UnReadMessageQueue.ShortMessage shortMessage = new UnReadMessageQueue.ShortMessage(true);
-                shortMessage.mSender = "\u7ba1\u7406\u5458";
+                shortMessage.mSender = "管理员";
                 shortMessage.mMsgContent = new String(array);
                 if (ReceiveMessageDlg.mDialog != null) {
                     UnReadMessageQueue.getInstance().add(shortMessage);

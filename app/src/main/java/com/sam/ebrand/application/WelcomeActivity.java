@@ -18,12 +18,16 @@ import android.widget.ImageView;
 import com.sam.ebrand.R;
 import com.sam.ebrand.engine.LCDEngine;
 import com.sam.ebrand.manage.BackgroundManager;
+import com.sam.ebrand.manage.HttpProtocalManager;
 import com.sam.ebrand.manage.SettingManager;
 import com.sam.ebrand.manage.SocketManager;
+import com.sam.ebrand.manage.SocketNoticeManager;
 import com.sam.ebrand.manage.SubLcdManager;
 import com.sam.ebrand.manage.SubLcdMsg;
 import com.sam.ebrand.meetingNetwork.NetWorkRes;
 import com.sam.ebrand.param.MeetingParam;
+import com.sam.ebrand.widget.ProgressDialogHint;
+import com.sam.ebrand.widget.ToastHint;
 
 public class WelcomeActivity extends Activity {
 
@@ -83,11 +87,11 @@ public class WelcomeActivity extends Activity {
                     final String trim = WelcomeActivity.this.messageEditText.getText().toString().trim();
                     if (trim != null && !trim.equals("")) {
                         WelcomeActivity.MGID = trim;
-                        ProgressDialogHint.Show((Context) WelcomeActivity.this, "\u63d0\u793a", "\u6b63\u5728\u4e0a\u4f20\u684c\u724cID...");
+                        ProgressDialogHint.Show((Context) WelcomeActivity.this, "提示", "正在上传桌牌ID...");
                         SocketManager.getInstance().mTimeoutTimer = 3;
                         SocketManager.getInstance().ResMgId(trim);
                     } else {
-                        ToastHint.show((Context) WelcomeActivity.this, "\u684c\u724cID\u4e0d\u80fd\u4e3a\u7a7a");
+                        ToastHint.show((Context) WelcomeActivity.this, "桌牌ID不能为空");
                     }
                 }
                 WelcomeActivity.this.dialogDismiss();
@@ -135,9 +139,9 @@ public class WelcomeActivity extends Activity {
         if (!LCDEngine.backlightStatus) {
             this.mUsernamebmpIV.setBackgroundResource(0);
         } else {
-            this.mUsernamebmpIV.setBackgroundDrawable((Drawable) BackgroundManager.getInstance().getSublcdPicture());
+            this.mUsernamebmpIV.setBackgroundDrawable( BackgroundManager.getInstance().getSublcdPicture());
         }
-        this.first_run = (boolean) SettingManager.getInstance().readSetting("first_run", this.first_run, true);
+        this.first_run = (boolean)(Boolean) SettingManager.getInstance().readSetting("first_run", this.first_run, true);
         MeetingParam.MGID = SettingManager.getInstance().readSetting("mgID", "", "").toString();
         if (MeetingParam.MGID.equals("")) {
             this.dialog();

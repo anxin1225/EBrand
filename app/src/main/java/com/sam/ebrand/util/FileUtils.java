@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.sam.ebrand.brower.ImageBrowser;
 
+import com.sam.ebrand.manage.SDFolderManager;
 import com.sam.ebrand.manage.SettingManager;
 import com.sam.ebrand.manage.SubLcdManager;
 
@@ -33,6 +34,10 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 /**
  * Created by sam on 2016/11/10.
@@ -436,7 +441,7 @@ public class FileUtils {
                     final File file4 = file2;
                     file4.mkdirs();
                     final String s2 = "FileUtils";
-                    final String s3 = "\u521b\u5efaSD\u5361\u6587\u4ef6\u5939\u6210\u529f: ";
+                    final String s3 = "创建SD卡文件夹成功: ";
                     final StringBuilder sb = new StringBuilder(s3);
                     final String s4 = s;
                     final StringBuilder sb2 = sb.append(s4);
@@ -446,139 +451,11 @@ public class FileUtils {
                 }
                 return file2;
             }
-            catch (Exception ex2) {}
-            while (true) {
-                try {
-                    final File file3 = file2;
-                    final boolean b = file3.exists();
-                    if (!b) {
-                        final File file4 = file2;
-                        file4.mkdirs();
-                        final String s2 = "FileUtils";
-                        final String s3 = "\u521b\u5efaSD\u5361\u6587\u4ef6\u5939\u6210\u529f: ";
-                        final StringBuilder sb = new StringBuilder(s3);
-                        final String s4 = s;
-                        final StringBuilder sb2 = sb.append(s4);
-                        final String s5 = sb2.toString();
-                        Log.e(s2, s5);
-                        return file2;
-                    }
-                    return file2;
-                    final Exception ex;
-                    Log.e("FileUtils", "\u521b\u5efaSD\u5361\u6587\u4ef6\u5939\u5931\u8d25: " + ex.getMessage());
+            catch (Exception ex) {
+                    Log.e("FileUtils", "创建SD卡文件夹失败: " + ex.getMessage());
                     ex.printStackTrace();
-                    return file;
-                }
-                catch (Exception ex) {
-                    file = file2;
-                    continue;
-                }
-                break;
             }
-            return file2;
-        }
-
-        public static Bitmap decodeFile(final String p0) {
-            //
-            // This method could not be decompiled.
-            //
-            // Original Bytecode:
-            //
-            //     0: new             Landroid/graphics/BitmapFactory$Options;
-            //     3: dup
-            //     4: invokespecial   android/graphics/BitmapFactory$Options.<init>:()V
-            //     7: astore_1
-            //     8: aload_1
-            //     9: iconst_0
-            //    10: putfield        android/graphics/BitmapFactory$Options.inDither:Z
-            //    13: aload_1
-            //    14: iconst_1
-            //    15: putfield        android/graphics/BitmapFactory$Options.inPurgeable:Z
-            //    18: aload_1
-            //    19: sipush          12288
-            //    22: newarray        B
-            //    24: putfield        android/graphics/BitmapFactory$Options.inTempStorage:[B
-            //    27: new             Ljava/io/File;
-            //    30: dup
-            //    31: aload_0
-            //    32: invokespecial   java/io/File.<init>:(Ljava/lang/String;)V
-            //    35: astore_2
-            //    36: new             Ljava/io/FileInputStream;
-            //    39: dup
-            //    40: aload_2
-            //    41: invokespecial   java/io/FileInputStream.<init>:(Ljava/io/File;)V
-            //    44: astore_3
-            //    45: aload_3
-            //    46: astore          4
-            //    48: aconst_null
-            //    49: astore          5
-            //    51: aload           4
-            //    53: ifnull          82
-            //    56: aload           4
-            //    58: invokevirtual   java/io/FileInputStream.getFD:()Ljava/io/FileDescriptor;
-            //    61: aconst_null
-            //    62: aload_1
-            //    63: invokestatic    android/graphics/BitmapFactory.decodeFileDescriptor:(Ljava/io/FileDescriptor;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-            //    66: astore          10
-            //    68: aload           10
-            //    70: astore          5
-            //    72: aload           4
-            //    74: ifnull          82
-            //    77: aload           4
-            //    79: invokevirtual   java/io/FileInputStream.close:()V
-            //    82: aload           5
-            //    84: areturn
-            //    85: astore          12
-            //    87: aload           12
-            //    89: invokevirtual   java/io/FileNotFoundException.printStackTrace:()V
-            //    92: aconst_null
-            //    93: astore          4
-            //    95: goto            48
-            //    98: astore          8
-            //   100: aload           8
-            //   102: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   105: aconst_null
-            //   106: astore          5
-            //   108: aload           4
-            //   110: ifnull          82
-            //   113: aload           4
-            //   115: invokevirtual   java/io/FileInputStream.close:()V
-            //   118: aconst_null
-            //   119: areturn
-            //   120: astore          9
-            //   122: aload           9
-            //   124: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   127: aconst_null
-            //   128: areturn
-            //   129: astore          6
-            //   131: aload           4
-            //   133: ifnull          141
-            //   136: aload           4
-            //   138: invokevirtual   java/io/FileInputStream.close:()V
-            //   141: aload           6
-            //   143: athrow
-            //   144: astore          7
-            //   146: aload           7
-            //   148: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   151: goto            141
-            //   154: astore          11
-            //   156: aload           11
-            //   158: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   161: aload           5
-            //   163: areturn
-            //    Exceptions:
-            //  Try           Handler
-            //  Start  End    Start  End    Type
-            //  -----  -----  -----  -----  -------------------------------
-            //  36     45     85     98     Ljava/io/FileNotFoundException;
-            //  56     68     98     129    Ljava/io/IOException;
-            //  56     68     129    154    Any
-            //  77     82     154    164    Ljava/io/IOException;
-            //  100    105    129    154    Any
-            //  113    118    120    129    Ljava/io/IOException;
-            //  136    141    144    154    Ljava/io/IOException;
-            //
-            throw new IllegalStateException("An error occurred while decompiling this method.");
+            return null;
         }
 
         public static Bitmap decodeFileZoom(final String s, final int n, final int n2) {
@@ -935,8 +812,9 @@ public class FileUtils {
             }
             catch (IOException ex2) {
                 ex2.printStackTrace();
-                goto Label_0131;
             }
+
+            return null;
         }
 
         public static String[] readExcel(final File file) {
@@ -948,8 +826,8 @@ public class FileUtils {
                 final Sheet sheet = workbook.getSheet(0);
                 final int rows = sheet.getRows();
                 final int columns = sheet.getColumns();
-                Log.e("Excel", "\u603b\u884c\u6570\uff1a" + rows);
-                Log.e("Excel", "\u603b\u5217\u6570\uff1a" + columns);
+                Log.e("Excel", "总行数：" + rows);
+                Log.e("Excel", "总列数：" + columns);
                 for (int i = 1; i < rows; ++i) {
                     final String contents = sheet.getCell(0, i).getContents();
                     final String contents2 = sheet.getCell(1, i).getContents();
@@ -978,154 +856,8 @@ public class FileUtils {
                     workbook.close();
                 }
             }
-        }
 
-        public static String readFileContent(final String p0, final String p1) {
-            //
-            // This method could not be decompiled.
-            //
-            // Original Bytecode:
-            //
-            //     0: ldc             ""
-            //     2: astore_2
-            //     3: new             Ljava/io/BufferedReader;
-            //     6: dup
-            //     7: new             Ljava/io/InputStreamReader;
-            //    10: dup
-            //    11: new             Ljava/io/FileInputStream;
-            //    14: dup
-            //    15: aload_0
-            //    16: invokespecial   java/io/FileInputStream.<init>:(Ljava/lang/String;)V
-            //    19: aload_1
-            //    20: invokespecial   java/io/InputStreamReader.<init>:(Ljava/io/InputStream;Ljava/lang/String;)V
-            //    23: invokespecial   java/io/BufferedReader.<init>:(Ljava/io/Reader;)V
-            //    26: astore_3
-            //    27: aload_3
-            //    28: invokevirtual   java/io/BufferedReader.readLine:()Ljava/lang/String;
-            //    31: astore          8
-            //    33: aload           8
-            //    35: ifnonnull       44
-            //    38: aload_3
-            //    39: invokevirtual   java/io/BufferedReader.close:()V
-            //    42: aload_2
-            //    43: areturn
-            //    44: new             Ljava/lang/StringBuilder;
-            //    47: dup
-            //    48: aload_2
-            //    49: invokestatic    java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
-            //    52: invokespecial   java/lang/StringBuilder.<init>:(Ljava/lang/String;)V
-            //    55: aload           8
-            //    57: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-            //    60: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-            //    63: astore          9
-            //    65: aload           9
-            //    67: astore_2
-            //    68: goto            27
-            //    71: astore          4
-            //    73: aload           4
-            //    75: invokevirtual   java/io/FileNotFoundException.printStackTrace:()V
-            //    78: ldc_w           "ych"
-            //    81: ldc_w           "\u8bfb\u53d6\u6570\u636e\u62a5\u9519"
-            //    84: invokestatic    android/util/Log.d:(Ljava/lang/String;Ljava/lang/String;)I
-            //    87: pop
-            //    88: aconst_null
-            //    89: areturn
-            //    90: astore          6
-            //    92: aload           6
-            //    94: invokevirtual   java/io/IOException.printStackTrace:()V
-            //    97: ldc_w           "ych"
-            //   100: ldc_w           "\u8bfb\u53d6\u6570\u636e\u62a5\u9519"
-            //   103: invokestatic    android/util/Log.d:(Ljava/lang/String;Ljava/lang/String;)I
-            //   106: pop
-            //   107: aconst_null
-            //   108: areturn
-            //   109: astore          6
-            //   111: goto            92
-            //   114: astore          4
-            //   116: goto            73
-            //    Exceptions:
-            //  Try           Handler
-            //  Start  End    Start  End    Type
-            //  -----  -----  -----  -----  -------------------------------
-            //  3      27     71     73     Ljava/io/FileNotFoundException;
-            //  3      27     90     92     Ljava/io/IOException;
-            //  27     33     114    119    Ljava/io/FileNotFoundException;
-            //  27     33     109    114    Ljava/io/IOException;
-            //  38     42     114    119    Ljava/io/FileNotFoundException;
-            //  38     42     109    114    Ljava/io/IOException;
-            //  44     65     114    119    Ljava/io/FileNotFoundException;
-            //  44     65     109    114    Ljava/io/IOException;
-            //
-            throw new IllegalStateException("An error occurred while decompiling this method.");
-        }
-
-        public static String readPrivateFile(final Context p0, final String p1, final String p2) {
-            //
-            // This method could not be decompiled.
-            //
-            // Original Bytecode:
-            //
-            //     0: new             Ljava/io/BufferedReader;
-            //     3: dup
-            //     4: new             Ljava/io/InputStreamReader;
-            //     7: dup
-            //     8: aload_0
-            //     9: aload_1
-            //    10: invokevirtual   android/content/Context.openFileInput:(Ljava/lang/String;)Ljava/io/FileInputStream;
-            //    13: aload_2
-            //    14: invokespecial   java/io/InputStreamReader.<init>:(Ljava/io/InputStream;Ljava/lang/String;)V
-            //    17: invokespecial   java/io/BufferedReader.<init>:(Ljava/io/Reader;)V
-            //    20: astore_3
-            //    21: ldc             ""
-            //    23: astore          4
-            //    25: aload_3
-            //    26: invokevirtual   java/io/BufferedReader.readLine:()Ljava/lang/String;
-            //    29: astore          7
-            //    31: aload           7
-            //    33: ifnonnull       43
-            //    36: aload_3
-            //    37: invokevirtual   java/io/BufferedReader.close:()V
-            //    40: aload           4
-            //    42: areturn
-            //    43: new             Ljava/lang/StringBuilder;
-            //    46: dup
-            //    47: aload           4
-            //    49: invokestatic    java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
-            //    52: invokespecial   java/lang/StringBuilder.<init>:(Ljava/lang/String;)V
-            //    55: aload           7
-            //    57: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-            //    60: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-            //    63: astore          8
-            //    65: aload           8
-            //    67: astore          4
-            //    69: goto            25
-            //    72: astore          5
-            //    74: aload           5
-            //    76: invokevirtual   java/io/FileNotFoundException.printStackTrace:()V
-            //    79: aconst_null
-            //    80: areturn
-            //    81: astore          6
-            //    83: aload           6
-            //    85: invokevirtual   java/io/IOException.printStackTrace:()V
-            //    88: goto            79
-            //    91: astore          6
-            //    93: goto            83
-            //    96: astore          5
-            //    98: goto            74
-            //    Exceptions:
-            //  Try           Handler
-            //  Start  End    Start  End    Type
-            //  -----  -----  -----  -----  -------------------------------
-            //  0      21     72     74     Ljava/io/FileNotFoundException;
-            //  0      21     81     83     Ljava/io/IOException;
-            //  25     31     96     101    Ljava/io/FileNotFoundException;
-            //  25     31     91     96     Ljava/io/IOException;
-            //  36     40     96     101    Ljava/io/FileNotFoundException;
-            //  36     40     91     96     Ljava/io/IOException;
-            //  43     65     96     101    Ljava/io/FileNotFoundException;
-            //  43     65     91     96     Ljava/io/IOException;
-            //
-            throw new IllegalStateException("An error occurred while decompiling this method.");
+            return null;
         }
 
         public static void removeFile(final String s) {
@@ -1202,242 +934,6 @@ public class FileUtils {
             if (fileOutputStream != null) {
                 fileOutputStream.close();
             }
-        }
-
-        public static void transferFile2(final String p0, final String p1) {
-            //
-            // This method could not be decompiled.
-            //
-            // Original Bytecode:
-            //
-            //     0: aconst_null
-            //     1: astore_2
-            //     2: aconst_null
-            //     3: astore_3
-            //     4: aconst_null
-            //     5: astore          4
-            //     7: aconst_null
-            //     8: astore          5
-            //    10: new             Ljava/io/FileInputStream;
-            //    13: dup
-            //    14: aload_0
-            //    15: invokespecial   java/io/FileInputStream.<init>:(Ljava/lang/String;)V
-            //    18: astore          6
-            //    20: new             Ljava/io/FileOutputStream;
-            //    23: dup
-            //    24: aload_1
-            //    25: invokespecial   java/io/FileOutputStream.<init>:(Ljava/lang/String;)V
-            //    28: astore          7
-            //    30: aload           6
-            //    32: invokevirtual   java/io/FileInputStream.getChannel:()Ljava/nio/channels/FileChannel;
-            //    35: astore_2
-            //    36: aload           7
-            //    38: invokevirtual   java/io/FileOutputStream.getChannel:()Ljava/nio/channels/FileChannel;
-            //    41: astore_3
-            //    42: aload_2
-            //    43: invokevirtual   java/nio/channels/FileChannel.position:()J
-            //    46: lstore          12
-            //    48: aload_2
-            //    49: invokevirtual   java/nio/channels/FileChannel.size:()J
-            //    52: lstore          14
-            //    54: lload           12
-            //    56: lload           14
-            //    58: lcmp
-            //    59: iflt            113
-            //    62: aload_2
-            //    63: ifnull          77
-            //    66: aload_2
-            //    67: invokevirtual   java/nio/channels/FileChannel.isOpen:()Z
-            //    70: ifeq            77
-            //    73: aload_2
-            //    74: invokevirtual   java/nio/channels/FileChannel.close:()V
-            //    77: aload_3
-            //    78: ifnull          92
-            //    81: aload_3
-            //    82: invokevirtual   java/nio/channels/FileChannel.isOpen:()Z
-            //    85: ifeq            92
-            //    88: aload_3
-            //    89: invokevirtual   java/nio/channels/FileChannel.close:()V
-            //    92: aload           6
-            //    94: ifnull          102
-            //    97: aload           6
-            //    99: invokevirtual   java/io/FileInputStream.close:()V
-            //   102: aload           7
-            //   104: ifnull          331
-            //   107: aload           7
-            //   109: invokevirtual   java/io/FileOutputStream.close:()V
-            //   112: return
-            //   113: aload_2
-            //   114: invokevirtual   java/nio/channels/FileChannel.size:()J
-            //   117: aload_2
-            //   118: invokevirtual   java/nio/channels/FileChannel.position:()J
-            //   121: lsub
-            //   122: sipush          5120
-            //   125: i2l
-            //   126: lcmp
-            //   127: ifge            251
-            //   130: aload_2
-            //   131: invokevirtual   java/nio/channels/FileChannel.size:()J
-            //   134: aload_2
-            //   135: invokevirtual   java/nio/channels/FileChannel.position:()J
-            //   138: lsub
-            //   139: l2i
-            //   140: istore          16
-            //   142: iload           16
-            //   144: invokestatic    java/nio/ByteBuffer.allocateDirect:(I)Ljava/nio/ByteBuffer;
-            //   147: astore          17
-            //   149: aload_2
-            //   150: aload           17
-            //   152: invokevirtual   java/nio/channels/FileChannel.read:(Ljava/nio/ByteBuffer;)I
-            //   155: pop
-            //   156: aload           17
-            //   158: invokevirtual   java/nio/ByteBuffer.flip:()Ljava/nio/Buffer;
-            //   161: pop
-            //   162: aload_3
-            //   163: aload           17
-            //   165: invokevirtual   java/nio/channels/FileChannel.write:(Ljava/nio/ByteBuffer;)I
-            //   168: pop
-            //   169: aload_3
-            //   170: iconst_0
-            //   171: invokevirtual   java/nio/channels/FileChannel.force:(Z)V
-            //   174: goto            42
-            //   177: astore          10
-            //   179: aload           7
-            //   181: astore          5
-            //   183: aload           6
-            //   185: astore          4
-            //   187: aload           10
-            //   189: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   192: aload_2
-            //   193: ifnull          207
-            //   196: aload_2
-            //   197: invokevirtual   java/nio/channels/FileChannel.isOpen:()Z
-            //   200: ifeq            207
-            //   203: aload_2
-            //   204: invokevirtual   java/nio/channels/FileChannel.close:()V
-            //   207: aload_3
-            //   208: ifnull          222
-            //   211: aload_3
-            //   212: invokevirtual   java/nio/channels/FileChannel.isOpen:()Z
-            //   215: ifeq            222
-            //   218: aload_3
-            //   219: invokevirtual   java/nio/channels/FileChannel.close:()V
-            //   222: aload           4
-            //   224: ifnull          232
-            //   227: aload           4
-            //   229: invokevirtual   java/io/FileInputStream.close:()V
-            //   232: aload           5
-            //   234: ifnull          112
-            //   237: aload           5
-            //   239: invokevirtual   java/io/FileOutputStream.close:()V
-            //   242: return
-            //   243: astore          11
-            //   245: aload           11
-            //   247: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   250: return
-            //   251: sipush          5120
-            //   254: istore          16
-            //   256: goto            142
-            //   259: astore          8
-            //   261: aload_2
-            //   262: ifnull          276
-            //   265: aload_2
-            //   266: invokevirtual   java/nio/channels/FileChannel.isOpen:()Z
-            //   269: ifeq            276
-            //   272: aload_2
-            //   273: invokevirtual   java/nio/channels/FileChannel.close:()V
-            //   276: aload_3
-            //   277: ifnull          291
-            //   280: aload_3
-            //   281: invokevirtual   java/nio/channels/FileChannel.isOpen:()Z
-            //   284: ifeq            291
-            //   287: aload_3
-            //   288: invokevirtual   java/nio/channels/FileChannel.close:()V
-            //   291: aload           4
-            //   293: ifnull          301
-            //   296: aload           4
-            //   298: invokevirtual   java/io/FileInputStream.close:()V
-            //   301: aload           5
-            //   303: ifnull          311
-            //   306: aload           5
-            //   308: invokevirtual   java/io/FileOutputStream.close:()V
-            //   311: aload           8
-            //   313: athrow
-            //   314: astore          9
-            //   316: aload           9
-            //   318: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   321: goto            311
-            //   324: astore          21
-            //   326: aload           21
-            //   328: invokevirtual   java/io/IOException.printStackTrace:()V
-            //   331: return
-            //   332: astore          8
-            //   334: aload           6
-            //   336: astore          4
-            //   338: aconst_null
-            //   339: astore_2
-            //   340: aconst_null
-            //   341: astore          5
-            //   343: aconst_null
-            //   344: astore_3
-            //   345: goto            261
-            //   348: astore          8
-            //   350: aload           7
-            //   352: astore          5
-            //   354: aload           6
-            //   356: astore          4
-            //   358: goto            261
-            //   361: astore          10
-            //   363: aconst_null
-            //   364: astore          4
-            //   366: aconst_null
-            //   367: astore_2
-            //   368: aconst_null
-            //   369: astore          5
-            //   371: aconst_null
-            //   372: astore_3
-            //   373: goto            187
-            //   376: astore          10
-            //   378: aload           6
-            //   380: astore          4
-            //   382: aconst_null
-            //   383: astore_2
-            //   384: aconst_null
-            //   385: astore          5
-            //   387: aconst_null
-            //   388: astore_3
-            //   389: goto            187
-            //    Exceptions:
-            //  Try           Handler
-            //  Start  End    Start  End    Type
-            //  -----  -----  -----  -----  ---------------------
-            //  10     20     361    376    Ljava/io/IOException;
-            //  10     20     259    261    Any
-            //  20     30     376    392    Ljava/io/IOException;
-            //  20     30     332    348    Any
-            //  30     42     177    187    Ljava/io/IOException;
-            //  30     42     348    361    Any
-            //  42     54     177    187    Ljava/io/IOException;
-            //  42     54     348    361    Any
-            //  66     77     324    331    Ljava/io/IOException;
-            //  81     92     324    331    Ljava/io/IOException;
-            //  97     102    324    331    Ljava/io/IOException;
-            //  107    112    324    331    Ljava/io/IOException;
-            //  113    142    177    187    Ljava/io/IOException;
-            //  113    142    348    361    Any
-            //  142    174    177    187    Ljava/io/IOException;
-            //  142    174    348    361    Any
-            //  187    192    259    261    Any
-            //  196    207    243    251    Ljava/io/IOException;
-            //  211    222    243    251    Ljava/io/IOException;
-            //  227    232    243    251    Ljava/io/IOException;
-            //  237    242    243    251    Ljava/io/IOException;
-            //  265    276    314    324    Ljava/io/IOException;
-            //  280    291    314    324    Ljava/io/IOException;
-            //  296    301    314    324    Ljava/io/IOException;
-            //  306    311    314    324    Ljava/io/IOException;
-            //
-            throw new IllegalStateException("An error occurred while decompiling this method.");
         }
 
         public static boolean writeBitmapByPath(final String s, final Bitmap bitmap) {
@@ -1615,5 +1111,3 @@ public class FileUtils {
             }
         }
     }
-
-}

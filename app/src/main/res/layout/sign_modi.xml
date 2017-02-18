@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/mainbackground" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <RelativeLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="20.0dip">
+            <TextView android:textSize="40.0dip" android:textColor="#ffffffff" android:id="@+id/SignClueText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/signconfirmclue" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="310.0dip" android:layout_marginTop="20.0dip">
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="600.0dip" android:layout_height="fill_parent">
+                <TextView android:textSize="125.0dip" android:textColor="#ffffffff" android:gravity="center_vertical" android:layout_gravity="center" android:id="@+id/UserName" android:layout_width="wrap_content" android:layout_height="270.0dip" android:text="中中中中中中中中" android:maxLines="2" android:maxEms="4" />
+            </LinearLayout>
+            <SurfaceView android:layout_gravity="right|center" android:id="@+id/cameraView" android:layout_width="400.0dip" android:layout_height="300.0dip" />
+            <ImageView android:id="@+id/cameraPicture" android:background="@drawable/video_bg" android:visibility="gone" android:layout_width="400.0dip" android:layout_height="300.0dip" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="600.0dip" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+            <ImageButton android:id="@+id/btn_sign_comfirm" android:background="@drawable/btnsignxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/regulation_modi" />
+    </RelativeLayout>
+</LinearLayout>

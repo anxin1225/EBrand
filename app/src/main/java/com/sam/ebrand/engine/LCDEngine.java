@@ -4,8 +4,11 @@
 package com.sam.ebrand.engine;
 
 import android.content.Intent;
+import android.util.Log;
 
+import com.sam.ebrand.application.UserBitmapGenerate;
 import com.sam.ebrand.application.shortcutService;
+import com.sam.ebrand.manage.SocketManager;
 import com.sam.ebrand.param.MeetingParam;
 
 public class LCDEngine {

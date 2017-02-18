@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/NoticeLinearLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@+id/notice_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="50.0dip">
+        <TextView android:textSize="35.0dip" android:textColor="@color/white" android:id="@+id/NoticeTxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="30.0dip" android:text="暂无通知" />
+        <Button android:textSize="35.0dip" android:textColor="@color/white" android:id="@+id/NoticeBtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_marginBottom="20.0dip" android:text="查看所有通知" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

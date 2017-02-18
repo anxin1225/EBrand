@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/mainbackground" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/imageView1" android:background="@drawable/servicecalltitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/btn_coffe" android:background="@drawable/coffe1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="130.0dip" />
+        <ImageView android:id="@+id/btn_tea" android:background="@drawable/tea1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="310.0dip" />
+        <ImageView android:id="@+id/btn_flower" android:background="@drawable/flower1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="510.0dip" />
+        <ImageView android:id="@+id/btn_waitor" android:background="@drawable/waitor1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="670.0dip" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/btn_mic" android:background="@drawable/mic1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" />
+        <ImageView android:id="@+id/btn_pen" android:background="@drawable/pen1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="260.0dip" />
+        <ImageView android:id="@+id/btn_paper" android:background="@drawable/paper1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="510.0dip" />
+        <ImageView android:id="@+id/btn_water" android:background="@drawable/water1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="720.0dip" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/editboxbg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+        <EditText android:layout_gravity="center_vertical" android:id="@+id/serviceCallEdText" android:layout_width="800.0dip" android:layout_height="65.0dip" android:layout_marginLeft="20.0dip" />
+        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/btn_callconfirm" android:background="@drawable/btn_call_confirmxml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/regulation_modi" />
+    </RelativeLayout>
+</LinearLayout>

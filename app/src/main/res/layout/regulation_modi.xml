@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/taskbg" android:layout_width="fill_parent" android:layout_height="110.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <ImageButton android:layout_gravity="bottom" android:id="@+id/btn_main" android:background="@drawable/main_btnxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageButton android:layout_gravity="bottom" android:id="@+id/btn_welcome" android:background="@drawable/welcome_btnxml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" />
+        <ImageButton android:layout_gravity="bottom" android:id="@+id/btn_systemnotice" android:background="@drawable/systemnoticexml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" />
+        <ImageButton android:layout_gravity="bottom" android:id="@+id/btn_goback" android:background="@drawable/gobackxml" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

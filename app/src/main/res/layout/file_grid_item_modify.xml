@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@+id/view_fileimg" android:background="@drawable/glass_folder_003" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="7.0dip" />
+    <ImageView android:id="@+id/btn_import" android:background="@drawable/daochubtn" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+    <TextView android:textSize="30.0dip" android:textColor="#ffffffff" android:gravity="center_vertical" android:id="@+id/txt_filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:lines="1" android:layout_toRightOf="@id/view_fileimg" android:layout_centerVertical="true" />
+</RelativeLayout>
