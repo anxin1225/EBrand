@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ext_title_text_color">#ffeeeeee</color>
+    <color name="ext_title_btn_text_color">#ffeeeeee</color>
+    <color name="ext_color_context_bg2">#99ffffff</color>
+    <color name="ext_color_context_bg">#33333333</color>
+    <color name="ext_color_context_list_bg">#ddffffff</color>
+</resources>

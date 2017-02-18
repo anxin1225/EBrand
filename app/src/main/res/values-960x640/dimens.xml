@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_hint_text_size">36.0px</dimen>
+    <dimen name="edit_width">450.0px</dimen>
+    <dimen name="edit_height">80.0px</dimen>
+</resources>

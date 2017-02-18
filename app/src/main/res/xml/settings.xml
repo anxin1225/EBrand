@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pen_title" android:key="@string/pen_key" android:summary="@string/pen_summary">
+        <Preference android:title="@string/pen_width_title" android:key="@string/pen_width_key" android:summary="@string/pen_width_summary" />
+        <Preference android:title="@string/pen_color_title" android:key="@string/pen_color_key" android:summary="@string/pen_color_summary" />
+        <CheckBoxPreference android:title="@string/pen_style_title" android:key="@string/pen_style_key" android:defaultValue="@string/checkbox_default_false" android:summaryOn="@string/pen_style_summary_on" android:summaryOff="@string/pen_style_summary_off" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting_screen_title" android:key="@string/setting_screen_key" android:summary="@string/setting_screen_summary">
+        <CheckBoxPreference android:title="@string/full_screen_title" android:key="@string/check_full_screen_key" android:defaultValue="@string/checkbox_default_false" android:summaryOn="@string/full_screen_on" android:summaryOff="@string/full_screen_off" />
+    </PreferenceCategory>
+</PreferenceScreen>

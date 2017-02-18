@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="drawings">
+        <item>随笔</item>
+        <item>直线</item>
+        <item>矩形</item>
+        <item>椭圆</item>
+        <item>圆形</item>
+        <item>圆点</item>
+        <item>橡皮</item>
+    </string-array>
+    <string-array name="string_session_operation_menu_array">
+        <item>删除该会话</item>
+    </string-array>
+    <string-array name="string_message_operation_menu_array">
+        <item>删除该短信</item>
+        <item>转发</item>
+    </string-array>
+    <string-array name="fonts_array">
+        <item>默认字体</item>
+        <item>硬笔行书</item>
+        <item>华文行楷</item>
+        <item>方正粗圆</item>
+        <item>华文新宋</item>
+        <item>微软雅黑</item>
+        <item>华文彩云</item>
+        <item>方正魏碑</item>
+        <item>楷体</item>
+        <item>隶书</item>
+    </string-array>
+    <string-array name="fonts_realname">
+        <item>default</item>
+        <item>fzybhs.ttf</item>
+        <item>hwhk.ttf</item>
+        <item>fzcy.ttf</item>
+        <item>hwxs.ttf</item>
+        <item>wryh.ttf</item>
+        <item>hwcy.ttf</item>
+        <item>fzwb.ttf</item>
+        <item>kaiti.ttf</item>
+        <item>ls.ttf</item>
+    </string-array>
+    <string-array name="server_fonts_array">
+        <item>默认字体</item>
+        <item>华文行楷</item>
+        <item>方正硬笔行书</item>
+        <item>楷体</item>
+        <item>华文新宋</item>
+        <item>方正魏碑</item>
+        <item>方正粗圆</item>
+        <item>隶书</item>
+        <item>华文彩云</item>
+        <item>微软雅黑</item>
+    </string-array>
+    <string-array name="server_fonts_realname_array">
+        <item>default</item>
+        <item>hwhk.ttf</item>
+        <item>fzybhs.ttf</item>
+        <item>kaiti.ttf</item>
+        <item>hwxs.ttf</item>
+        <item>fzwb.ttf</item>
+        <item>fzcy.ttf</item>
+        <item>ls.ttf</item>
+        <item>hwcy.ttf</item>
+        <item>wryh.ttf</item>
+    </string-array>
+</resources>
